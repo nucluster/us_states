@@ -1,14 +1,8 @@
-import sys
-# import csv
+import csv
 
+new_lst = []
 
-print(sys.version)
-print('hello world')
-
-# with open('us_states.csv') as f:
-#     reader = csv.reader(f)
-#     print(list(reader))
-#     # for row in reader:
-#     #     print(row)
-#
-# # print(type(reader))
+with open('us_states.csv') as f:
+    reader = csv.DictReader(f)
+    for row in reader:
+        print(row)
