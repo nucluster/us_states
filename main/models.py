@@ -1,4 +1,5 @@
 from django.db import models
+import django_tables2 as tables
 
 
 class State(models.Model):
@@ -18,3 +19,8 @@ class State(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class StateTable(tables.Table):
+    class Meta:
+        model = State
