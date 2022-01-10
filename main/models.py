@@ -16,6 +16,8 @@ class State(models.Model):
                                     decimal_places=2)
     water_area = models.DecimalField('Площадь воды, кв.км', max_digits=10,
                                      decimal_places=2)
+    flag_image = models.ImageField('Флаг', null=True, blank=True)
+    seal_image = models.ImageField('Печать', null=True, blank=True)
 
     def __str__(self):
         return self.name
