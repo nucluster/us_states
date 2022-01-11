@@ -26,8 +26,8 @@ class State(models.Model):
 class StateTable(tables.Table):
     class Meta:
         model = State
-        attrs = {"border": "1"}
-        template_name = "django_tables2/semantic.html"
+        attrs = {"class":"table table-striped table-bordered"}
+        template_name = "django_tables2/bootstrap4.html"
         fields = ('id', 'name', 'zip_code', 'capital', 'largest_city',
                     'ratification', 'population', 'total_area', 'land_area',
                     'water_area')
