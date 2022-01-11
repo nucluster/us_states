@@ -11,3 +11,6 @@ class TableView(tables.SingleTableView):
     table_class = StateTable
     queryset = State.objects.all()
     template_name = "main/hello.html"
+    table_pagination = False
+
+# tables.SingleTableView.table_pagination = False

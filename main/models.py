@@ -26,3 +26,6 @@ class State(models.Model):
 class StateTable(tables.Table):
     class Meta:
         model = State
+        attrs = {"border": "1"}
+        template_name = "django_tables2/semantic.html"
+        fields = ("id", "name",)
