@@ -28,4 +28,7 @@ class StateTable(tables.Table):
         model = State
         attrs = {"border": "1"}
         template_name = "django_tables2/semantic.html"
-        fields = ("id", "name",)
+        fields = ('id', 'name', 'zip_code', 'capital', 'largest_city',
+                    'ratification', 'population', 'total_area', 'land_area',
+                    'water_area')
+
