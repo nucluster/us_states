@@ -8,3 +8,4 @@ class TableView(tables.SingleTableView):
     queryset = State.objects.all()
     template_name = "main/hello.html"
     table_pagination = False
+    ordering = ('id',)
