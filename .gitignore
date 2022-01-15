@@ -133,3 +133,4 @@ dmypy.json
 .vscode
 local_settings.py
 media/
+static/
