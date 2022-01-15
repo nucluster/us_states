@@ -19,11 +19,11 @@ from django.contrib import admin
 from django.urls import path
 from django.views.generic import RedirectView
 
-from main.views import TableView
+from main.views import get_table
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', TableView.as_view()),
+    path('', get_table, name='main_view'),
     path('favicon.ico/', RedirectView.as_view(url='/static/favicon.ico'),
          name='favicon'),
 ]

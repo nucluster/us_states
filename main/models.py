@@ -22,13 +22,3 @@ class State(models.Model):
     def __str__(self):
         return self.name
 
-
-class StateTable(tables.Table):
-    class Meta:
-        model = State
-        attrs = {"class":"table table-striped table-bordered"}
-        template_name = "django_tables2/bootstrap4.html"
-        fields = ('id', 'name', 'zip_code', 'capital', 'largest_city',
-                    'ratification', 'population', 'total_area', 'land_area',
-                    'water_area')
-

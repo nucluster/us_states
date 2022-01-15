@@ -1,11 +1,9 @@
 from django.shortcuts import render
-import django_tables2 as tables
-from .models import State, StateTable
+from .models import State
 
 
-class TableView(tables.SingleTableView):
-    table_class = StateTable
-    queryset = State.objects.all()
-    template_name = "main/hello.html"
-    table_pagination = False
-    ordering = ('id',)
+def get_table(request):
+    states = State.objects.all()
+    table_headers = [f.verbose_name for f in State._meta.get_fields()]
+    context = {'states': states, 'table_headers': table_headers[:-2]}
+    return render(request, 'main/hello_bootstrap_table.html', context)
