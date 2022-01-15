@@ -131,4 +131,6 @@ dmypy.json
 # my
 .idea
 .vscode
+local_settings.py
 media/
+static/
