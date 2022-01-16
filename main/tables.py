@@ -5,7 +5,8 @@ from .models import State
 
 class ImageColumn(tables.Column):
     def render(self, value):
-        return format_html('<a href="/media/{0}"><img src="/media/{0}" width="100" height="50" />', value)
+        return format_html(
+            '<a href="/media/{0}"><img src="/media/{0}" width="100" height="50" />', value)
 
 
 class StateTable(tables.Table):
