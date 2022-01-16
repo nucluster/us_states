@@ -3,14 +3,19 @@ from django.utils.html import format_html
 from .models import State
 
 
-class ImageColumn(tables.Column):
+class ImageColumnFlag(tables.Column):
     def render(self, value):
         return format_html(
-            '<a href="/media/{0}"><img src="/media/{0}" width="100" height="50" />', value)
+            '<a href="/media/{0}"><img src="/media/{0}" width="100" height="66" />', value)
+
+class ImageColumnSeal(tables.Column):
+    def render(self, value):
+        return format_html(
+            '<a href="/media/{0}"><img src="/media/{0}" width="50" height="50" />', value)
 
 class StateTable(tables.Table):
-    flag_image = ImageColumn()
-    seal_image = ImageColumn()
+    flag_image = ImageColumnFlag()
+    seal_image = ImageColumnSeal()
     class Meta:
         model = State
         attrs = {"class":"table table-striped table-bordered"}
