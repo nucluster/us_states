@@ -1,6 +1,15 @@
 from django.db import models
-import django_tables2 as tables
 
+
+def flag_directory_path(instance, filename):
+    # file will be uploaded to MEDIA_ROOT/zip_code/<filename>
+    filename = 'Flag_of_{}.svg'.format(instance.name)
+    return '{0}/{1}'.format(instance.zip_code, filename)
+
+def seal_directory_path(instance, filename):
+    # file will be uploaded to MEDIA_ROOT/zip_code/<filename>
+    filename = 'Seal_of_{}.svg'.format(instance.name)
+    return '{0}/{1}'.format(instance.zip_code, filename)
 
 class State(models.Model):
     name = models.CharField('Название штата', max_length=50, unique=True)
@@ -16,19 +25,10 @@ class State(models.Model):
                                     decimal_places=2)
     water_area = models.DecimalField('Площадь воды, кв.км', max_digits=10,
                                      decimal_places=2)
-    flag_image = models.ImageField('Флаг', null=True, blank=True)
-    seal_image = models.ImageField('Печать', null=True, blank=True)
+    flag_image = models.FileField('Флаг', null=True, blank=True,
+                                    upload_to=flag_directory_path)
+    seal_image = models.FileField('Печать', null=True, blank=True,
+                                    upload_to=seal_directory_path)
 
     def __str__(self):
         return self.name
-
-
-class StateTable(tables.Table):
-    class Meta:
-        model = State
-        attrs = {"class":"table table-striped table-bordered"}
-        template_name = "django_tables2/bootstrap4.html"
-        fields = ('id', 'name', 'zip_code', 'capital', 'largest_city',
-                    'ratification', 'population', 'total_area', 'land_area',
-                    'water_area')
-

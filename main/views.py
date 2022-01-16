@@ -1,6 +1,6 @@
-from django.shortcuts import render
 import django_tables2 as tables
-from .models import State, StateTable
+from .models import State 
+from .tables import StateTable
 
 
 class TableView(tables.SingleTableView):
@@ -9,3 +9,4 @@ class TableView(tables.SingleTableView):
     template_name = "main/hello.html"
     table_pagination = False
     ordering = ('id',)
+
