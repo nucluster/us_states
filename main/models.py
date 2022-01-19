@@ -3,12 +3,12 @@ from django.db import models
 
 def flag_directory_path(instance, filename):
     # file will be uploaded to MEDIA_ROOT/zip_code/<filename>
-    filename = 'Flag_of_{}.svg'.format(instance.name)
+    filename = 'Flag_of_{}.svg'.format(instance.name.replace(' ', '_'))
     return '{0}/{1}'.format(instance.zip_code, filename)
 
 def seal_directory_path(instance, filename):
     # file will be uploaded to MEDIA_ROOT/zip_code/<filename>
-    filename = 'Seal_of_{}.svg'.format(instance.name)
+    filename = 'Seal_of_{}.svg'.format(instance.name.replace(' ', '_'))
     return '{0}/{1}'.format(instance.zip_code, filename)
 
 class State(models.Model):
