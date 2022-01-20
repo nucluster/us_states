@@ -18,6 +18,7 @@ class ImageColumnSeal(tables.Column):
 
 
 class StateTable(tables.Table):
+    id = tables.Column(verbose_name='#', attrs={"th": {"bgcolor": "red"}})
     flag_image = ImageColumnFlag()
     seal_image = ImageColumnSeal()
 

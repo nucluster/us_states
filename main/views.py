@@ -1,5 +1,5 @@
 import django_tables2 as tables
-from .models import State 
+from .models import State
 from .tables import StateTable
 
 
