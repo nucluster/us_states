@@ -21,6 +21,9 @@ class StateTable(tables.Table):
     flag_image = ImageColumnFlag()
     seal_image = ImageColumnSeal()
 
+    def render_ratification(self, value):
+        return value
+
     class Meta:
         model = State
         attrs = {"class": "table table-striped table-bordered"}
