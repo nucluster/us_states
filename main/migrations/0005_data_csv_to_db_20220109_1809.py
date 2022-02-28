@@ -9,7 +9,7 @@ def csv_to_db(apps, schema_editor):
     with open('us_states.csv') as f:
         reader = csv.DictReader(f)
         for row in reader:
-            State.objects.create(name=row['Name'],
+            State.objects.get_or_create(name=row['Name'],
                                  zip_code=row['ZIP code'],
                                  capital=row['Capital'],
                                  largest_city=row['Largest city'],
