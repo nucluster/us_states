@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 import django_tables2 as tables
 from django.shortcuts import render
 
@@ -25,8 +25,9 @@ def get_key(request):
 
 def handle_uploaded_file(f):
     with open('screenshot.png', 'wb+') as destination:
-        for chunk in f.chunks():
-            destination.write(chunk)
+        destination.write(f)
+        # for chunk in f.chunks():
+        #     destination.write(chunk)
 
 
 def upload_file(request):
@@ -34,7 +35,7 @@ def upload_file(request):
         form = UploadFileForm(request.POST, request.FILES)
         if form.is_valid():
             handle_uploaded_file(request.FILES['file'])
-            return HttpResponse('Success!')
+            return HttpResponseRedirect('')
     else:
         form = UploadFileForm()
     return render(request, 'main/upload.html', {'form': form})

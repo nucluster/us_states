@@ -1,14 +1,24 @@
-from us_states.settings import BASE_DIR
+from pathlib import Path
 
 
-def handle_uploaded_file(f):
-    with open('screenshot.svg', 'wb+') as destination:
-        # for chunk in f.chunks():
-        #     destination.write(chunk)
-        destination.write(f)
+BASE_DIR = Path(__file__).resolve().parent.parent
+# def handle_uploaded_file(f):
+#     with open('screenshot.png', 'wb') as destination:
+#         # for chunk in f.chunks():
+#         #     destination.write(chunk)
+#         destination.write(f)
 
 
-with open(BASE_DIR/'media'/'Flag_of_the_United_States.svg', 'wb+') as file:
+with open(
+    BASE_DIR/'media'/'Greater_coat_of_arms_of_the_United_States.png', 'rb'
+    ) as file:
     flag = file.read()
 
-handle_uploaded_file(flag)
+# handle_uploaded_file(flag)
+
+print(type(flag))
+print(len(flag))
+# print(flag)
+
+# for place in sys.path:
+#     print(place)
