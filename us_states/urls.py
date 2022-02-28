@@ -19,13 +19,14 @@ from django.contrib import admin
 from django.urls import path
 from django.views.generic import RedirectView
 
-from main.views import TableView
+from main.views import TableView, get_key
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', TableView.as_view()),
     path('favicon.ico/', RedirectView.as_view(url='/static/favicon.ico'),
          name='favicon'),
+    path('key/', get_key)
 ]
 
 if settings.DEBUG:
