@@ -34,3 +34,7 @@ class State(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class UploadFileModel(models.Model):
+    file = models.FileField('Файл:', null=True, blank=True)
