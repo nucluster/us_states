@@ -5,6 +5,7 @@ from django.shortcuts import render
 from .models import State
 from .tables import StateTable
 from .forms import UploadFileForm
+from .generate_key import gen_random_key
 from us_states.settings import BASE_DIR
 
 
@@ -16,11 +17,10 @@ class TableView(tables.SingleTableView):
     ordering = ('id',)
 
 
-key = 'W8H74-7F63C-Y44W4-379XJ-23FMF'
-
+# key = gen_random_key(2,3,5)
 
 def get_key(request):
-    return HttpResponse(key)
+    return HttpResponse(gen_random_key(2,3,5))
 
 
 def handle_uploaded_file(f):
