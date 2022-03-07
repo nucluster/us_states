@@ -19,9 +19,9 @@ class ImageColumnSeal(tables.Column):
 
 class StateTable(tables.Table):
     id = tables.Column(verbose_name='#',
-                        attrs={"th": {"style": "font-size: 32px"},
-                                "td": {"style": "font-weight: bold"}}
-    )
+                       attrs={"th": {"style": "font-size: 32px"},
+                              "td": {"style": "font-weight: bold"}}
+                       )
     flag_image = ImageColumnFlag()
     seal_image = ImageColumnSeal()
 

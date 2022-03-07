@@ -1,4 +1,5 @@
 from django.db import models
+from easy_thumbnails.fields import ThumbnailerImageField
 
 
 def flag_directory_path(instance, filename):
@@ -38,3 +39,10 @@ class State(models.Model):
 
 class UploadFileModel(models.Model):
     file = models.FileField('Файл:', null=True, blank=True)
+
+
+# class UploadImageModel(models.Model):
+#     image = models.ImageField('Картинка:', blank=True)
+#     thumbnail = ThumbnailerImageField(
+#         thumbnail_storage='media/thumbnails/',
+#         resize_source=dict(size=(100, 100), sharpen=True), blank=True)
