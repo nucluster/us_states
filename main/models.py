@@ -1,5 +1,4 @@
 from django.db import models
-from easy_thumbnails.fields import ThumbnailerImageField
 
 
 def flag_directory_path(instance, filename):

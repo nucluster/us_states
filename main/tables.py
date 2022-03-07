@@ -6,14 +6,14 @@ from .models import State
 class ImageColumnFlag(tables.Column):
     def render(self, value):
         return format_html(
-            '<a href="/media/{0}"><img src="/media/{0}" width="100" '
+            '<a href="/media/{0}"><img src="/media/{0}.png" width="100" '
             'height="66" />', value)
 
 
 class ImageColumnSeal(tables.Column):
     def render(self, value):
         return format_html(
-            '<a href="/media/{0}"><img src="/media/{0}" width="50" '
+            '<a href="/media/{0}"><img src="/media/{0}.png" width="50" '
             'height="50" />', value)
 
 
