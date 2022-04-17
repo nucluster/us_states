@@ -19,7 +19,7 @@ from django.contrib import admin
 from django.urls import path
 from django.views.generic import RedirectView
 
-from main.views import TableView, get_key, upload_file
+from main.views import TableView, get_key  # rm upload_file
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,7 +27,7 @@ urlpatterns = [
     path('favicon.ico/', RedirectView.as_view(url='/static/favicon.ico'),
          name='favicon'),
     path('key/', get_key),
-    path('upload/', upload_file),
+    # path('upload/', upload_file),
 ]
 
 if settings.DEBUG:
